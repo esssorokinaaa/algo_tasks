@@ -1,9 +1,7 @@
-def hanoi(n, source, target, auxiliary):
+def hanoi(n, from_rod, to_rod, aux_rod):
     if n == 1:
-        print(f"Переместить диск 1 с {source} на {target}")
+        print(f"Переносим диск 1 с {from_rod} на {to_rod}")
         return
-    hanoi(n-1, source, auxiliary, target)
-    print(f"Переместить диск {n} с {source} на {target}")
-    hanoi(n-1, auxiliary, target, source)
-
-hanoi(3, 'A', 'C', 'B')
+    hanoi(n-1, from_rod, aux_rod, to_rod)  # Шаг 1: переносим все верхние диски на вспомогательный стержень
+    print(f"Переносим диск {n} с {from_rod} на {to_rod}")  # Шаг 2: переносим самый большой диск
+    hanoi(n-1, aux_rod, to_rod, from_rod)  # Шаг 3: переносим стопку на целевой стержень
