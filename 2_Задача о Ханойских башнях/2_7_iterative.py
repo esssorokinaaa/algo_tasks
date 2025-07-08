@@ -5,7 +5,7 @@ def hanoi_iterative(n, source, target, auxiliary):
         num, src, tgt, aux, processed = stack.pop()  # Берем последнюю задачу
         
         if num == 1:  # Если остался один диск - просто переносим
-            print(f"Переносим диск 1 с {src} на {tgt}")
+            print(f"{src} -> {tgt}")
         elif not processed:  # Если задача еще не обрабатывалась
             # Кладем задачи в стек в обратном порядке выполнения:
             stack.append((num, src, tgt, aux, True))  # Помечаем как обработанную
